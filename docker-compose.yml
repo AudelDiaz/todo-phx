@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  app:
+    build: ./
+    image: "audeldiaz/todo-phoenix"
+    depends_on:
+      - db
+    volumes:
+      - "./:/usr/src/myapp"
+    ports:
+      - "4000:4000"
+    command: mix phx.server
+    env_file: .env
+
+  db:
+    image: postgres:11
+    restart: on-failure
+    env_file: .env

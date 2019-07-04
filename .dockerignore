@@ -1,0 +1,7 @@
+_build/
+deps/
+.idea/
+Dockerfile
+docker-compose.yml
+.env
+*.iml
