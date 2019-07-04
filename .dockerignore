@@ -1,6 +1,7 @@
 _build/
 deps/
 .idea/
+assets/node_modules/
 Dockerfile
 docker-compose.yml
 .env

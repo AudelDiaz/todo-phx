@@ -10,6 +10,7 @@ RUN apt update \
 RUN mix local.hex --force \
     && mix local.rebar --force \
     && mix archive.install hex phx_new $PHX_VERSION --force
-COPY mix.exs mix.lock ./
+COPY mix.exs mix.lock assets/ ./
 RUN mix deps.get \
     && mix deps.compile
+RUN cd assets/ && npm install
