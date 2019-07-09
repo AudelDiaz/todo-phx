@@ -2,10 +2,17 @@
 
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+  * Install Docker and docker-compose
+  * Create **.env** file in the project root
+  ```
+  # Template
+  POSTGRES_USER=example
+  POSTGRES_PASSWORD=example
+  POSTGRES_DB=example
+  POSTGRES_HOST=db # Name of the db service in docker-compose.yml
+  ```
+  * Build images `docker-compose build`
+  * Start Phoenix endpoint with `docker-compose up`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
