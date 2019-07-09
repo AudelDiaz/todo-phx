@@ -1,12 +1,12 @@
-FROM elixir:1.9
+FROM elixir:1.9-alpine
+LABEL description="PhoenixFramework development environment" \
+      maintainer="audel.diaz@outlook.com" \
+      version="1.0"
 ENV PHX_VERSION=1.4.8
 ENV MIX_ENV=dev
 WORKDIR /usr/src/myapp
-RUN apt update \
-    && apt install -y build-essential \
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-    && apt install -y nodejs inotify-tools \
-    && apt autoremove
+RUN apk add --update npm inotify-tools \
+    && rm -rf /var/cache/apk/*
 RUN mix local.hex --force \
     && mix local.rebar --force \
     && mix archive.install hex phx_new $PHX_VERSION --force
