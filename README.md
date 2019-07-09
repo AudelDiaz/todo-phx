@@ -14,7 +14,7 @@ To start your Phoenix server:
   * Build images `docker-compose build`
   * Start Phoenix endpoint with `docker-compose up`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Now you can visit [`localhost`](http://localhost) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
