@@ -13,3 +13,4 @@ RUN mix local.hex --force \
 COPY mix.exs mix.lock assets ./
 RUN mix deps.get \
     && mix deps.compile
+EXPOSE 4000

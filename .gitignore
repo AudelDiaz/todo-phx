@@ -5,16 +5,16 @@
 /cover/
 
 # The directory Mix downloads your dependencies sources to.
-/deps/
+src/deps/
 
 # Where 3rd-party dependencies like ExDoc output generated docs.
-/doc/
+src/doc/
 
 # Ignore .fetch files in case you like to edit your project deps locally.
-/.fetch
+src/.fetch
 
 # If the VM crashes, it generates a dump, let's ignore it too.
-erl_crash.dump
+src/erl_crash.dump
 
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
@@ -23,15 +23,17 @@ erl_crash.dump
 todo-*.tar
 
 # If NPM crashes, it generates a log, let's ignore it too.
-npm-debug.log
+src/npm-debug.log
 
 # The directory NPM downloads your dependencies sources to.
-/assets/node_modules/
+src/assets/node_modules/
 
 # Since we are building assets from assets/,
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
-/priv/static/
+src/priv/static/
+src/_build/
+src/deps/
 .idea/
 .env
-assets/node_modules/
+*.iml
