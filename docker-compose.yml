@@ -1,13 +1,28 @@
 version: "3.7"
 services:
-  app:
-    build: ./src/
+  todo:
+    build:
+      context: ./todo/
+      dockerfile: ../Dockerfile
     image: "audeldiaz/todo-phoenix:1.9-alpine"
     restart: on-failure
     depends_on:
       - db
     volumes:
-      - "./src/:/usr/src/myapp"
+      - "./todo/:/usr/src/myapp"
+    command: mix phx.server
+    env_file: .env
+
+  note:
+    build:
+      context: ./note/
+      dockerfile: ../Dockerfile
+    image: "audeldiaz/note-phoenix:1.9-alpine"
+    restart: on-failure
+    depends_on:
+      - db
+    volumes:
+      - "./note/:/usr/src/myapp"
     command: mix phx.server
     env_file: .env
 
@@ -20,9 +35,11 @@ services:
     image: nginx
     restart: on-failure
     depends_on:
-      - app
+      - todo
+      - note
     volumes:
-      - "./nginx/dev.conf:/etc/nginx/conf.d/default.conf"
+      - "./nginx/todo.conf:/etc/nginx/conf.d/default.conf"
+      - "./nginx/note.conf:/etc/nginx/conf.d/note.conf"
       - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
     ports:
       - "80:80"
