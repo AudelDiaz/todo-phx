@@ -36,4 +36,5 @@ src/_build/
 src/deps/
 .idea/
 .env
+.env_prod
 *.iml
