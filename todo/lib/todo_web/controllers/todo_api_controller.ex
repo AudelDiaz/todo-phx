@@ -4,14 +4,14 @@ defmodule TodoWeb.TodoApiController do
   alias Todo.TodosApi
   alias Todo.TodosApi.TodoApi
 
-  action_fallback TodoWeb.FallbackController
+  action_fallback(TodoWeb.FallbackController)
 
   def index(conn, _params) do
     todos = TodosApi.list_todos()
     render(conn, "index.json", todos: todos)
   end
 
-  def create(conn, %{"todo_api" => todo_api_params}) do
+  def create(conn, %{} = todo_api_params) do
     with {:ok, %TodoApi{} = todo_api} <- TodosApi.create_todo_api(todo_api_params) do
       conn
       |> put_status(:created)

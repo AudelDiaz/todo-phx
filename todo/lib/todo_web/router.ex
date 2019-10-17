@@ -7,6 +7,6 @@ defmodule TodoWeb.Router do
 
   scope "/api", TodoWeb do
     pipe_through(:api)
-    resources("/notes", NoteController, except: [:new, :edit])
+    resources("/todos", TodoApiController, except: [:new, :edit])
   end
 end
