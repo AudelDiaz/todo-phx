@@ -1,8 +1,8 @@
-defmodule Todo.NotesApi.Note do
+defmodule Todo.TodosApi.TodoApi do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "notes" do
+  schema "todos" do
     field :status, :boolean, default: false
     field :text, :string
 
@@ -10,8 +10,8 @@ defmodule Todo.NotesApi.Note do
   end
 
   @doc false
-  def changeset(note, attrs) do
-    note
+  def changeset(todo_api, attrs) do
+    todo_api
     |> cast(attrs, [:text, :status])
     |> validate_required([:text, :status])
   end
