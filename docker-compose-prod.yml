@@ -4,7 +4,7 @@ services:
     build:
       context: ./todo/
       dockerfile: ../Dockerfile-prod
-    image: "audeldiaz/todo-phoenix:1.9-alpine"
+    image: "audeldiaz/todo-phoenix-prod:1.9-alpine"
     restart: on-failure
     depends_on:
       - db
@@ -16,7 +16,7 @@ services:
     build:
       context: ./note/
       dockerfile: ../Dockerfile-prod
-    image: "audeldiaz/note-phoenix:1.9-alpine"
+    image: "audeldiaz/note-phoenix-prod:1.9-alpine"
     restart: on-failure
     depends_on:
       - db
