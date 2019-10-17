@@ -4,14 +4,14 @@ defmodule NoteWeb.NoteApiController do
   alias Note.NotesApi
   alias Note.NotesApi.NoteApi
 
-  action_fallback NoteWeb.FallbackController
+  action_fallback(NoteWeb.FallbackController)
 
   def index(conn, _params) do
     notes = NotesApi.list_notes()
     render(conn, "index.json", notes: notes)
   end
 
-  def create(conn, %{"note_api" => note_api_params}) do
+  def create(conn, %{} = note_api_params) do
     with {:ok, %NoteApi{} = note_api} <- NotesApi.create_note_api(note_api_params) do
       conn
       |> put_status(:created)

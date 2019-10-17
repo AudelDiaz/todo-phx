@@ -1,4 +1,4 @@
-defmodule Note.NotesAPI do
+defmodule Note.NotesApi do
   @moduledoc """
   The NotesAPI context.
   """
